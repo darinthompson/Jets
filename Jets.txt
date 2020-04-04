@@ -1,5 +1,5 @@
-A10 Warthog, 439, 290, 18.8 Million
-F-22 Raptor, 1200, 679, 150 Million
-F-35 Lightening 2, 806, 1700, 108.8 Million
-Lockheed P-3 Orion, 473, 5560, 36 Million
-C-5M Galaxy, 520, 8100, 1.037 Million
+A10 Warthog, 439, 290, 18800000, Air to Ground Combat
+F-22 Raptor, 1200, 679, 150000000, Air Superiority Fighter
+F-35 Lightning 2, 806, 1700, 108800000, Air Superiority Fighter
+Lockheed P-3 Orion, 473, 5560, 36000000, Surveillance
+C-5M Galaxy, 520, 8100, 100370000, Cargo

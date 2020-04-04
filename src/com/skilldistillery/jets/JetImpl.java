@@ -1,13 +1,11 @@
 package com.skilldistillery.jets;
 
 public class JetImpl extends Jet{
+	String type;
 	
-	public JetImpl() {
-		
-	}
-	
-	public JetImpl(String _model,double _speed, int _range, String _price) {
-		super(_model, _speed, _range, _price);
+	public JetImpl(String model, double speed, int range, long price, String _type) {
+		super(model, speed, range, price);
+		type = _type;
 	}
 	
 }

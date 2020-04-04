@@ -4,13 +4,13 @@ public abstract class Jet {
 	private String model;
 	private double speed;
 	private int range;
-	private String price;
+	private Long price;
 	
 	public Jet() {
 		
 	}
 	
-	public Jet(String _model, double _speed, int _range, String _price) {
+	public Jet(String _model, double _speed, int _range, Long _price) {
 		model = _model;
 		speed = _speed;
 		range = _range;
@@ -41,20 +41,24 @@ public abstract class Jet {
 		return range;
 	}
 	
-	public void setPrice(String _price) {
+	public void setPrice(long _price) {
 		price = _price;
 	}
 	
-	public String getPrice() {
+	public long getPrice() {
 		return price;
 	}
 	
-	private String getFlightTime() {
+	public String getFlightTime() {
 		return (String.format("%.1f", (range / speed)));
 	}
 	
 	public void fly() {
-		System.out.println("Model: " + model + "\nMax Speed " + speed + " MPH\nMax Range: " + range + " miles\nEndurance: " + getFlightTime() + " Hrs\nPrice: " + price);
+		System.out.println("Model: " + model + "\nMax Speed " + speed + " MPH\nMax Range: " + range + " Miles\nEndurance: " + getFlightTime() + " Hrs\nPrice: " + price );
+	}
+	
+	public String toString() {
+		return ("Model: " + model + "\nMax Speed " + speed + " MPH\nMax Range: " + range + " Miles" + "\nPrice: " + price);
 	}
 	
 }

@@ -4,18 +4,37 @@ import java.util.Scanner;
 
 public class JetsApplication {
 	private AirField af = new AirField();
+	private static Scanner sc = new Scanner(System.in);
 	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {	
 		JetsApplication app = new JetsApplication();
 		while(true) {
-			app.run();
+			app.launch();
 			System.out.print("== choice: ");
 			int userChoice = sc.nextInt();
 			switch(userChoice) {
+			case 1:
+				System.out.println();
+				app.ListFleet();
+				System.out.println();
+				break;
 			case 2:
 				System.out.println();
 				app.FlyJets();
+				System.out.println();
+				break;
+			case 3:
+				System.out.println();
+				System.out.println("------- THE FASTEST JET --------");
+				System.out.println();
+				app.GetFastestJet().fly();
+				System.out.println();
+				break;
+			case 4:
+				System.out.println();
+				System.out.println("------- LONGEST RANGE ----------");
+				System.out.println();
+				app.GetLongestFlyingJet().fly();
 				System.out.println();
 				break;
 			default :
@@ -25,11 +44,12 @@ public class JetsApplication {
 		
 	}
 
-	public void run() {
+	public void launch() {
 		PrintMenu();
 	}
 	
 	public void PrintMenu() {
+		
 		System.out.println("===========================================");
 		System.out.println("==      1. List Fleet                    ==");
 		System.out.println("==      2. Fly All Jets                  ==");
@@ -43,10 +63,88 @@ public class JetsApplication {
 		System.out.println("===========================================");
 	}
 	
+	public void ListFleet() {
+		for (Jet jet : af.getList()) {
+			System.out.println(jet.toString());
+			System.out.println("-----------------");
+		}
+	}
+	
 	public void FlyJets() {
 		for (Jet jet : af.getList()) {
 			jet.fly();
 			System.out.println("-----------------");
 		}
 	}
+	
+	public Jet GetFastestJet() {
+		Jet fastestJet = null;
+		double fastestSpeed = 0;
+		for(int i = 0; i < af.getList().size() - 1; i++) {
+			double jetSpeed = af.getJet(i).getSpeed();
+			if( jetSpeed > fastestSpeed) {
+				fastestSpeed = jetSpeed;
+				fastestJet = af.getJet(i);
+			}
+		}
+		return fastestJet;
+	}
+	
+	public Jet GetLongestFlyingJet() {
+		Jet LongestJet = null;
+		double LongestDistance = 0;
+		for (int i = 0; i < af.getList().size(); i++) {
+			double distance = af.getJet(i).getRange();
+			if(distance > LongestDistance) {
+				LongestDistance = distance;
+				LongestJet = af.getJet(i);
+			}
+		}
+		return LongestJet;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
