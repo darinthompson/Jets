@@ -40,9 +40,9 @@ public class AirField {
 				String type = jetInfo[4].trim();
 				long price = (Long.parseLong(jetInfo[3].trim()));
 				if(type.equals("Air to Ground Combat")) {
-					jet = new FighterJet(model, speed, range, price, type);					
+					jet = new AirToGroundCombat(model, speed, range, price, type);					
 				} else if(type.equals("Air Superiority Fighter")) {
-					jet = new AirToGroundCombat(model, speed, range, price, type);
+					jet = new FighterJet(model, speed, range, price, type);
 				} else if(type.equals("Surveillance")) {
 					jet = new SurveillancePlane(model, speed, range, price, type);
 				} else if(type.equals("Cargo")) {
