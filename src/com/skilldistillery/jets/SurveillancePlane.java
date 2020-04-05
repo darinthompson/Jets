@@ -15,7 +15,7 @@ public class SurveillancePlane extends Jet implements Surveillance{
 	
 	@Override
 	public void fly() {
-		System.out.println("Type: " + type + "\nModel: " + super.getModel() + "\nMax Speed " + super.getSpeed()+ " MPH\nMax Range: " + super.getRange() 
+		System.out.println("Type: " + type + "\nModel: " + super.getModel() + "\nMax Speed " + super.getSpeed()+ " MPH (Mach " + String.format("%.1f", super.SpeedInMach()) + " )\nMax Range: " + super.getRange() 
 				+ " Miles\nEndurance: " + super.getFlightTime() + " Hrs\nPrice: " + super.getPrice());
 	}
 }

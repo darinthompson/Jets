@@ -54,11 +54,15 @@ public abstract class Jet {
 	}
 	
 	public void fly() {
-		System.out.println("Model: " + model + "\nMax Speed " + speed + " MPH\nMax Range: " + range + " Miles\nEndurance: " + getFlightTime() + " Hrs\nPrice: " + price );
+		System.out.println("Model: " + model + "\nMax Speed " + speed + " MPH( " + SpeedInMach() + " )" + "\nMax Range: " + range + " Miles\nEndurance: " + getFlightTime() + " Hrs\nPrice: " + price );
 	}
 	
 	public String toString() {
 		return ("Model: " + model + "\nMax Speed " + speed + " MPH\nMax Range: " + range + " Miles" + "\nPrice: " + price);
+	}
+	
+	public double SpeedInMach() {
+		return (speed / 767.269148);
 	}
 	
 }

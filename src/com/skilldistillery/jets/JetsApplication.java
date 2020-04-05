@@ -48,16 +48,26 @@ public class JetsApplication {
 				break;
 			case 7:
 				System.out.println();
-				app.addJet();
+				app.Recon();
 				System.out.println();
 				break;
 			case 8:
 				System.out.println();
-				app.DeleteJet();
+				app.AirStrike();
 				System.out.println();
 				break;
 			case 9:
-				System.out.println("Good-Bye!");
+				System.out.println();
+				app.addJet();
+				System.out.println();
+				break;
+			case 10:
+				System.out.println();
+				app.DeleteJet();
+				System.out.println();
+				break;
+			case 11:
+				System.out.println("Thanks for checking out our jets!");
 				System.exit(0);
 			default:
 				System.out.println("Invalid Option");
@@ -78,9 +88,11 @@ public class JetsApplication {
 		System.out.println("==      4. View Jet With Longest Range   ==");
 		System.out.println("==      5. Load All Cargo Jets           ==");
 		System.out.println("==      6. DOGFIGHT!                     ==");
-		System.out.println("==      7. Add a Jet to Fleet            ==");
-		System.out.println("==      8. Remove a Jet From Fleet       ==");
-		System.out.println("==      9. Quit                          ==");
+		System.out.println("==      7. Reconnaissance                ==");
+		System.out.println("==      8. AirStrike                     ==");
+		System.out.println("==      9. Add a Jet to Fleet            ==");
+		System.out.println("==      10. Remove a Jet From Fleet      ==");
+		System.out.println("==      11. Quit                         ==");
 		System.out.println("===========================================");
 	}
 
@@ -95,6 +107,16 @@ public class JetsApplication {
 		for (Jet jet : af.getList()) {
 			jet.fly();
 			System.out.println("-----------------");
+		}
+	}
+	
+	public void AirStrike() {
+		for (Jet jet : af.getList()) {
+			if(jet instanceof AirToGroundCombat) {
+				System.out.println(jet.getModel());
+				System.out.println("-----------------");				
+				((AirToGroundCombat) jet).Attack();
+			}
 		}
 	}
 
@@ -265,6 +287,16 @@ public class JetsApplication {
 			} else {
 				af.getList().remove(userChoice - 1);
 				return;
+			}
+		}
+	}
+	
+	public void Recon() {
+		for (Jet jet : af.getList()) {
+			if (jet instanceof SurveillancePlane) {
+				System.out.println(jet.getModel());
+				System.out.println("-----------------");
+				((SurveillancePlane) jet).Survey();
 			}
 		}
 	}
