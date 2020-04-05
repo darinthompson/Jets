@@ -21,7 +21,7 @@ public class AirField {
 	public List<Jet> getList() {
 		return fleet;
 	}
-	
+
 	public Jet getJet(int index) {
 		return fleet.get(index);
 	}
@@ -39,13 +39,13 @@ public class AirField {
 				int range = (Integer.parseInt(jetInfo[2].trim()));
 				String type = jetInfo[4].trim();
 				long price = (Long.parseLong(jetInfo[3].trim()));
-				if(type.equals("Air to Ground Combat")) {
-					jet = new AirToGroundCombat(model, speed, range, price, type);					
-				} else if(type.equals("Air Superiority Fighter")) {
+				if (type.equals("Air to Ground Combat")) {
+					jet = new AirToGroundCombat(model, speed, range, price, type);
+				} else if (type.equals("Air Superiority Fighter")) {
 					jet = new FighterJet(model, speed, range, price, type);
-				} else if(type.equals("Surveillance")) {
+				} else if (type.equals("Surveillance")) {
 					jet = new SurveillancePlane(model, speed, range, price, type);
-				} else if(type.equals("Cargo")) {
+				} else if (type.equals("Cargo")) {
 					jet = new CargoJet(model, speed, range, price, type);
 				} else {
 					jet = new JetImpl(model, speed, range, price, type);

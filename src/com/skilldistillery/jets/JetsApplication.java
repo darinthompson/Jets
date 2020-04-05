@@ -51,6 +51,14 @@ public class JetsApplication {
 				app.addJet();
 				System.out.println();
 				break;
+			case 8:
+				System.out.println();
+				app.DeleteJet();
+				System.out.println();
+				break;
+			case 9:
+				System.out.println("Good-Bye!");
+				System.exit(0);
 			default:
 				System.out.println("Invalid Option");
 			}
@@ -190,7 +198,7 @@ public class JetsApplication {
 			default:
 				System.out.println("NOT A VALID OPTION");
 			}
-			
+
 			af.addJet(jet);
 
 		} while (true);
@@ -242,6 +250,23 @@ public class JetsApplication {
 			}
 		}
 		return userNum;
+	}
+
+	public void DeleteJet() {
+		int userChoice = 0;
+		for (int i = 0; i < af.getList().size(); i++) {
+			System.out.println(i + 1 + " - " + af.getJet(i).getModel());
+		}
+		
+		while(true) {
+			userChoice = ValidateInt("Select which jet to remove");
+			if(userChoice <= 0 || userChoice > af.getList().size()) {
+				System.out.println("Not a valid option");
+			} else {
+				af.getList().remove(userChoice - 1);
+				return;
+			}
+		}
 	}
 
 }
